@@ -1,303 +1,303 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                    <title>Product List</title>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 </head>
 
-<body>
-    <style>
-        @font-face {
-            font-family: 'proxima_nova_rgregular';
-            src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
-            src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
-                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
-                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
-            font-weight: normal;
-            font-style: normal;
+                        <body>
+                            <style>
+                                @font-face {
+                                    font - family: 'proxima_nova_rgregular';
+                                src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
+                                src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+                                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
+                                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
+                                url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+                                font-weight: normal;
+                                font-style: normal;
         }
 
-        body {
-            font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif;
+                                body {
+                                    font - family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif;
         }
 
-        * {
-            padding: 0;
-            margin-left: 2px;
-            box-sizing: border-box;
+                                * {
+                                    padding: 0;
+                                margin-left: 2px;
+                                box-sizing: border-box;
         }
 
-        .select2-container--default .select2-results__option--highlighted[aria-selected] {
-            background-color: #385072 !important;
-            color: white;
+                                .select2-container--default .select2-results__option--highlighted[aria-selected] {
+                                    background - color: #385072 !important;
+                                color: white;
         }
 
         .select2-container--default .select2-results>.select2-results__options {
-            max-height: 250px;
-            height: 250px;
-            top: 0%;
-            top: 0;
+                                    max - height: 250px;
+                                height: 250px;
+                                top: 0%;
+                                top: 0;
         }
 
-        #select2-games-container.select2-selection__rendered {
-            margin-left: 2px;
-            font-size: 12px;
-            box-sizing: border-box;
+                                #select2-games-container.select2-selection__rendered {
+                                    margin - left: 2px;
+                                font-size: 12px;
+                                box-sizing: border-box;
         }
 
-        #select2-country-container.select2-selection__rendered {
-            margin-left: 2px;
-            font-size: 12px;
-            box-sizing: border-box;
+                                #select2-country-container.select2-selection__rendered {
+                                    margin - left: 2px;
+                                font-size: 12px;
+                                box-sizing: border-box;
         }
 
-        .select2-selection--multiple {
-            overflow: hidden !important;
-            height: auto !important;
+                                .select2-selection--multiple {
+                                    overflow: hidden !important;
+                                height: auto !important;
         }
 
-        .select2-choices {
-            min-height: 250px;
-            max-height: 250px;
-            overflow-y: auto;
+                                .select2-choices {
+                                    min - height: 250px;
+                                max-height: 250px;
+                                overflow-y: auto;
         }
 
-        h5 {
-            font-family: Tahoma;
+                                h5 {
+                                    font - family: Tahoma;
         }
 
-        h6 {
-            color: black;
-            font-weight: bold;
-            margin-bottom: 0px;
-            padding-left: 2px;
+                                h6 {
+                                    color: black;
+                                font-weight: bold;
+                                margin-bottom: 0px;
+                                padding-left: 2px;
         }
 
-        .input-field {
-            width: 95%;
-            max-width: 95%;
-            font-size: 12px;
-            padding-left: 10px;
-            margin-left: 3px;
-            border-radius: 2px;
-            border-width: 1px;
-            /* box-shadow: 5px 10px #888888; */
-            /* border: #000000; */
-            border-color: #a1a1a1;
-            display: inline-flexbox;
-            height: 25px;
+                                .input-field {
+                                    width: 95%;
+                                max-width: 95%;
+                                font-size: 12px;
+                                padding-left: 10px;
+                                margin-left: 3px;
+                                border-radius: 2px;
+                                border-width: 1px;
+                                /* box-shadow: 5px 10px #888888; */
+                                /* border: #000000; */
+                                border-color: #a1a1a1;
+                                display: inline-flexbox;
+                                height: 25px;
         }
 
-        .invalid-placeholder {
-            background-color: #fcddcb;
-            columns: white;
+                                .invalid-placeholder {
+                                    background - color: #fcddcb;
+                                columns: white;
         }
 
-        ::-webkit-input-placeholder {
-            /* Edge */
-            color: rgb(68, 67, 67);
-            font-size: 12px;
+                                ::-webkit-input-placeholder {
+                                    /* Edge */
+                                    color: rgb(68, 67, 67);
+                                font-size: 12px;
         }
 
-        :-ms-input-placeholder {
-            /* Internet Explorer 10-11 */
-            color: rgb(68, 67, 67);
-            font-size: 12px;
+                                :-ms-input-placeholder {
+                                    /* Internet Explorer 10-11 */
+                                    color: rgb(68, 67, 67);
+                                font-size: 12px;
         }
 
-        ::placeholder {
-            color: rgb(68, 67, 67);
-            font-size: 12px;
+                                ::placeholder {
+                                    color: rgb(68, 67, 67);
+                                font-size: 12px;
         }
 
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto
+                                .center {
+                                    display: block;
+                                margin-left: auto;
+                                margin-right: auto
         }
 
-        .select-css {
-            max-width: 70%;
+                                .select-css {
+                                    max - width: 70%;
         }
 
 
-        form {
-            width: 300px;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 50px;
+                                form {
+                                    width: 300px;
+                                margin: 0 auto;
+                                text-align: center;
+                                padding-top: 50px;
         }
 
-        .value-button {
-            display: inline-block;
-            border: 1px solid #ddd;
-            margin: 0px;
-            width: 40px;
-            height: 20px;
-            text-align: center;
-            vertical-align: middle;
-            padding: 11px 0;
-            background: #eee;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+                                .value-button {
+                                    display: inline-block;
+                                border: 1px solid #ddd;
+                                margin: 0px;
+                                width: 40px;
+                                height: 20px;
+                                text-align: center;
+                                vertical-align: middle;
+                                padding: 11px 0;
+                                background: #eee;
+                                -webkit-touch-callout: none;
+                                -webkit-user-select: none;
+                                -khtml-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                user-select: none;
         }
 
-        .value-button:hover {
-            cursor: pointer;
+                                .value-button:hover {
+                                    cursor: pointer;
         }
 
-        form #decrease {
-            margin-right: -4px;
-            border-radius: 8px 0 0 8px;
+                                form #decrease {
+                                    margin - right: -4px;
+                                border-radius: 8px 0 0 8px;
         }
 
-        form #increase {
-            margin-left: -4px;
-            border-radius: 0 8px 8px 0;
+                                form #increase {
+                                    margin - left: -4px;
+                                border-radius: 0 8px 8px 0;
         }
 
-        form #input-wrap {
-            margin: 0px;
-            padding: 0px;
+                                form #input-wrap {
+                                    margin: 0px;
+                                padding: 0px;
         }
 
-        input#number {
-            text-align: center;
-            border: none;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            margin: 0px;
-            width: 15%;
-            max-width: 20%;
-            height: 40px;
+                                input#number {
+                                    text - align: center;
+                                border: none;
+                                border-top: 1px solid #ddd;
+                                border-bottom: 1px solid #ddd;
+                                margin: 0px;
+                                width: 15%;
+                                max-width: 20%;
+                                height: 40px;
         }
 
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+                                input[type=number]::-webkit-inner-spin-button,
+                                input[type=number]::-webkit-outer-spin-button {
+                                    -webkit - appearance: none;
+                                margin: 0;
         }
 
-        .cart-header {
-            display: flex;
-            justify-content: left;
-            position: relative;
-            width: 300px;
+                                .cart-header {
+                                    display: flex;
+                                justify-content: left;
+                                position: relative;
+                                width: 300px;
         }
 
-        .cart-header h4 {
-            text-align: left;
-            margin-top: 0;
-            padding-top: 0;
+                                .cart-header h4 {
+                                    text - align: left;
+                                margin-top: 0;
+                                padding-top: 0;
         }
 
-        .cart-header input {
-            position: absolute;
-            right: 0;
-            margin-top: 0px;
+                                .cart-header input {
+                                    position: absolute;
+                                right: 0;
+                                margin-top: 0px;
         }
 
-        .glyphicon {
-            float: right;
-            margin-left: 3px;
-            cursor: pointer;
+                                .glyphicon {
+                                    float: right;
+                                margin-left: 3px;
+                                cursor: pointer;
         }
 
-        .quantity-input {
-            width: 3%;
-            position: absolute;
-            margin-bottom: 2px;
-            height: 20px;
+                                .quantity-input {
+                                    width: 3%;
+                                position: absolute;
+                                margin-bottom: 2px;
+                                height: 20px;
         }
 
-        .demo-wrap {
-            position: relative;
-            height: 100vh;
+                                .demo-wrap {
+                                    position: relative;
+                                height: 100vh;
         }
 
-        .demo-wrap:before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+                                .demo-wrap:before {
+                                    content: ' ';
+                                display: block;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
             /* background: url("https://cdn.yellowmessenger.com/J8kENYr7XAWL1620791192314.jpg"); */
             /* background-repeat: no-repeat;
             background-position: 50% 0;
             background-size: cover; */
         }
 
-        .demo-content {
-            position: relative;
+                                .demo-content {
+                                    position: relative;
         }
 
-        #submit-button {
-            margin-top: 10px;
+                                #submit-button {
+                                    margin - top: 10px;
         }
-    </style>
-    <script>
-        var language = "tl"
+                            </style>
+                            <script>
+                                var language = "tl"
         window.addEventListener('load', (event) => {
-            console.log('page is fully loaded');
-            let { lang, status } = Qs.parse(location.search, { ignoreQueryPrefix: true })
-            language = lang
-            document.getElementById("title").innerHTML = language == "tl" ? "Pakisagutan ang mga sumusunod para mai-connect ka sa aming Customer Support Team 😊" : "Please fill in the following details to connect you to our Customer Support team 😊"
-            document.getElementById("name-header").innerHTML = language == "tl" ? "Pangalan" : "Name"
-            document.getElementById("email-header").innerHTML = language == "tl" ? "Email" : "Email"
-            document.getElementById("phone-header").innerHTML = language == "tl" ? "Cellphone Number" : "Mobile Number"
-            document.getElementById("payment-header").innerHTML = language == "tl" ? "Payment Method" : "Payment Channel"
-            document.getElementById("game-header").innerHTML = language == "tl" ? "Produk/Game" : "Product/Game"
-            document.getElementById("name").placeholder = language == "tl" ? "I-enter ang iyong pangalan" : "Please enter your name"
-            document.getElementById("email").placeholder = language == "tl" ? "I-enter ang iyong email" : "Please enter your email"
-            document.getElementById("phone").placeholder = language == "tl" ? "I-enter ang iyong cellphone number" : "Please enter your mobile number"
-            document.getElementById("product-option").innerHTML = language == "tl" ? "I-enter ang iyong payment method " : "Please select your payment channel"
-            document.getElementById("game-option").innerHTML = language == "tl" ? "I-enter ang iyong game/Product" : "Please select your game/product"
-            document.getElementById("submit-button").value = language == "tl" ? "Ipasa" : "Submit"
-            if (status == "offline") {
+                                    console.log('page is fully loaded');
+                                let {lang, status} = Qs.parse(location.search, {ignoreQueryPrefix: true })
+                                language = lang
+                                document.getElementById("title").innerHTML = language == "tl" ? "Pakisagutan ang mga sumusunod para mai-connect ka sa aming Customer Support Team 😊" : "Please fill in the following details to connect you to our Customer Support team 😊"
+                                document.getElementById("name-header").innerHTML = language == "tl" ? "Pangalan" : "Name"
+                                document.getElementById("email-header").innerHTML = language == "tl" ? "Email" : "Email"
+                                document.getElementById("phone-header").innerHTML = language == "tl" ? "Cellphone Number" : "Mobile Number"
+                                document.getElementById("payment-header").innerHTML = language == "tl" ? "Payment Method" : "Payment Channel"
+                                document.getElementById("game-header").innerHTML = language == "tl" ? "Produk/Game" : "Product/Game"
+                                document.getElementById("name").placeholder = language == "tl" ? "I-enter ang iyong pangalan" : "Please enter your name"
+                                document.getElementById("email").placeholder = language == "tl" ? "I-enter ang iyong email" : "Please enter your email"
+                                document.getElementById("phone").placeholder = language == "tl" ? "I-enter ang iyong cellphone number" : "Please enter your mobile number"
+                                document.getElementById("product-option").innerHTML = language == "tl" ? "I-enter ang iyong payment method " : "Please select your payment channel"
+                                document.getElementById("game-option").innerHTML = language == "tl" ? "I-enter ang iyong game/Product" : "Please select your game/product"
+                                document.getElementById("submit-button").value = language == "tl" ? "Ipasa" : "Submit"
+                                if (status == "offline") {
                 const message = document.createElement("h6")
-                message.innerHTML = language == "tl" ? "Mensahe" : "Message"
-                message.id = "message-header"
-                document.getElementById("offline-message").appendChild(message)
-                const messageBox = document.createElement("textarea")
-                // messageBox.placeholder = language == "tl" ? "message" : "message"
-                messageBox.type = "text"
-                messageBox.id = "user-message"
-                messageBox.name = "message"
-                // messageBox.onchange = messageHandler()
-                messageBox.classList.add("input-field")
-                messageBox.style.height = "50px"
-                document.getElementById("offline-message").appendChild(messageBox)
-                // messageBox.setAttribute("oninput", messageHandler());
-                const attachment = document.createElement("h6")
-                attachment.innerHTML = language == "tl" ? "Lampiran" : "Attachment"
-                attachment.id = "attachment-header"
-                document.getElementById("offline-message").appendChild(attachment)
-                const attachmentInput = document.createElement("input")
-                attachmentInput.type = "file"
-                attachmentInput.classList.add("form-control")
-                attachmentInput.classList.add("input-field")
-                attachmentInput.style.height = "30px"
-                attachmentInput.id = "read-file"
-                // attachmentInput.onchange = "fileUpload()"
-                document.getElementById("offline-message").appendChild(attachmentInput)
+                                message.innerHTML = language == "tl" ? "Mensahe" : "Message"
+                                message.id = "message-header"
+                                document.getElementById("offline-message").appendChild(message)
+                                const messageBox = document.createElement("textarea")
+                                // messageBox.placeholder = language == "tl" ? "message" : "message"
+                                messageBox.type = "text"
+                                messageBox.id = "user-message"
+                                messageBox.name = "message"
+                                // messageBox.onchange = messageHandler()
+                                messageBox.classList.add("input-field")
+                                messageBox.style.height = "50px"
+                                document.getElementById("offline-message").appendChild(messageBox)
+                                // messageBox.setAttribute("oninput", messageHandler());
+                                const attachment = document.createElement("h6")
+                                attachment.innerHTML = language == "tl" ? "Lampiran" : "Attachment"
+                                attachment.id = "attachment-header"
+                                document.getElementById("offline-message").appendChild(attachment)
+                                const attachmentInput = document.createElement("input")
+                                attachmentInput.type = "file"
+                                attachmentInput.classList.add("form-control")
+                                attachmentInput.classList.add("input-field")
+                                attachmentInput.style.height = "30px"
+                                attachmentInput.id = "read-file"
+                                // attachmentInput.onchange = "fileUpload()"
+                                document.getElementById("offline-message").appendChild(attachmentInput)
             }
             // console.log(language)
         });
@@ -334,181 +334,192 @@
         // Document upload - End
 
         var totalSelection = []
-        var count = 0
-        var countrys = {
-            "philippines": ["7-Eleven", "Bank Transfers", "Card Payments", "Cash at retail exclude 7-11",
-                "Coins.ph", "GCash", "Globe", "Grabpay", "PayMaya", "Smart/Sun"]
+                                var count = 0
+                                var countrys = {
+                                    "philippines": ["7-Eleven", "Bank Transfers", "Card Payments", "Cash at retail exclude 7-11",
+                                "Coins.ph", "GCash", "Globe", "Grabpay", "PayMaya", "Smart/Sun"]
         }
 
-        $(document).ready(function () {
-            var gamesArray = [];
+                                $(document).ready(function () {
+            var gamesArray = ["Asphlat 9: Legends","Azur Lane","Badlanders","Basketrio","Be The King: Judge Destiny","Bigo Live","Bleach Mobile 3D","Blizzard Balance","Blockman Go: Blocky Mods",
+                                "Call of Duty Mobile","Chaos Crisis","Club Vegas","Cooking Adventure","Cooking Battle","Counter Strike: Global Offensive","Crisis Action","Crusaders of Light",
+                                "Daybreak Legends","Devil Hunter","Disorder","Dragon Brawlers","Dragon Raja","Eclipse Isle","EOS Red","Era of Celestials","Food Fantasy",
+                                "Free Fire","Game of Sultans","Garena Shells Voucher","Genshin Impact","Goddess MUA","Hago","Harry Potter: Puzzles & Spells","Heroes Evolved",
+                                "Honkai Impact 3","Identity V","Idol Party","Kris Destiny: Immortal Sword","Kumu","Land of Doran","Laplace M","Last Empire Z","League of Legends: Wild Rift",
+                                "Legacy of Discord","Legends of Runeterra","LifeAfter","Light of Thel: Glory of Cepheus","LivU","Lords Mobile","Mahjong Soul","MARVEL Duel"
+                                ,"MARVEL Super War","Minecraft Voucher","Mixu","Mobile Legends","Mobile Legends: Adventure","Modern Combat 5: Blackout","MoeGirl Go!","Mr Love: Dream Date",
+                                "MU Origin 2","NBA 2K21-Steam","Netflix Voucher","Nintendo eShop (US) Voucher","OK Cupid Voucher","Omega Legends","Omlet Arcade","ONE PUNCH MAN: The Strongest",
+                                "Onmyoji Arena","PlayStation Network Vouchers","Point Blank","PUBG Mobile","PUBG Mobile Lite","PUBG Mobile UC Vouchers","Ragnarok M","Ride Out Heroes",
+                                "Rules of Survival","Saint Seiya","Samurai Era: Rise of Empires","Sky Castle","Snail Games","Spirit Land","Steam Wallet Code Voucher","Super Mecha Champions",
+                                "Tinder Direct Top Up","Tinder Voucher","Tom and Jerry: Chase","Top Eleven","Tumile","Turbo VPN","Valorant","Voucher: Black Desert SEA",
+                                "War of Rings","World War Heroes","Xbox Gift Card (US)","Zepeto"];
 
-            var countriesArray = ["philippines"]
-            $('#games').select2({
-                data: gamesArray
+                                var countriesArray = ["philippines"]
+                                $('#games').select2({
+                                    data: gamesArray
             });
 
-            $('#country').select2({
-                data: ["7-Eleven", "Bank Transfers", "Card Payments", "Cash at retail exclude 7-11",
-                "Coins.ph", "GCash", "Globe", "Grabpay", "PayMaya", "Smart/Sun"]
+                                $('#country').select2({
+                                    data: ["7-Eleven", "Bank Transfers", "Card Payments", "Cash at retail exclude 7-11",
+                                "Coins.ph", "GCash", "Globe", "Grabpay", "PayMaya", "Smart/Sun"]
             })
         });
 
-        function back() {
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "@go-back"
-                }),
-                "*"
-            );
+                                function back() {
+                                    window.parent.postMessage(
+                                        JSON.stringify({
+                                            event_code: "ym-client-event",
+                                            data: "@go-back"
+                                        }),
+                                        "*"
+                                    );
         }
 
-        function nameHandler() {
+                                function nameHandler() {
             const name = document.getElementById("name")
-            if (document.getElementById("name").value.length == 0) {
-                name.classList.add('invalid-placeholder');
-                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kailangan ang pangalan upang kumonekta sa isang ahente!" : "Name is required to connect an agent!"
+                                if (document.getElementById("name").value.length == 0) {
+                                    name.classList.add('invalid-placeholder');
+                                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kailangan ang pangalan upang kumonekta sa isang ahente!" : "Name is required to connect an agent!"
             }
-            else {
-                name.classList.remove("invalid-placeholder");
-                document.getElementById("invalid-message").innerHTML = ""
+                                else {
+                                    name.classList.remove("invalid-placeholder");
+                                document.getElementById("invalid-message").innerHTML = ""
             }
         }
 
-        function emailHandler() {
+                                function emailHandler() {
             const email = document.getElementById("email")
-            if (document.getElementById("email").value.length == 0) {
-                email.classList.add('invalid-placeholder');
-                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang email upang kumonekta sa isang ahente!" : "Email is required to connect an agent!"
+                                if (document.getElementById("email").value.length == 0) {
+                                    email.classList.add('invalid-placeholder');
+                                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang email upang kumonekta sa isang ahente!" : "Email is required to connect an agent!"
             }
-            else {
-                email.classList.remove("invalid-placeholder");
-                document.getElementById("invalid-message").innerHTML = ""
+                                else {
+                                    email.classList.remove("invalid-placeholder");
+                                document.getElementById("invalid-message").innerHTML = ""
             }
         }
 
-        function phoneHandler() {
+                                function phoneHandler() {
             const phone = document.getElementById("phone")
-            if (document.getElementById("phone").value.length == 0) {
-                phone.classList.add('invalid-placeholder');
-                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang numero ng telepono upang kumonekta sa isang ahente!" : "Phone number is required to connect an agent!"
+                                if (document.getElementById("phone").value.length == 0) {
+                                    phone.classList.add('invalid-placeholder');
+                                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang numero ng telepono upang kumonekta sa isang ahente!" : "Phone number is required to connect an agent!"
             }
-            else {
-                phone.classList.remove("invalid-placeholder");
-                document.getElementById("invalid-message").innerHTML = ""
+                                else {
+                                    phone.classList.remove("invalid-placeholder");
+                                document.getElementById("invalid-message").innerHTML = ""
             }
         }
 
-        function messageHandler() {
-            console.log("came into message handler")
+                                function messageHandler() {
+                                    console.log("came into message handler")
             const message = document.getElementById("user-message")
-            if (message.value.length == 0) {
-                // message.classList.add('invalid-placeholder');
-                document.getElementById("invalid-message").innerHTML = language == "tl" ? "Ang isang mensahe ay dapat na ipadala upang kumonekta sa isang ahente" : "A message should be sent to connect to an agent"
-            }
-            else {
-                // message.classList.remove("invalid-placeholder");
-                document.getElementById("invalid-message").innerHTML = ""
-            }
+                                if (message.value.length == 0) {
+                                    // message.classList.add('invalid-placeholder');
+                                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Ang isang mensahe ay dapat na ipadala upang kumonekta sa isang ahente" : "A message should be sent to connect to an agent"
+                                }
+                                else {
+                                    // message.classList.remove("invalid-placeholder");
+                                    document.getElementById("invalid-message").innerHTML = ""
+                                }
         }
 
-        function submit() {
+                                function submit() {
             const emailRegex = /[A-Za-z\d]+([-._+]?[A-Za-z\d]+)*@[A-Za-z\d]+(-?[A-Za-z\d])*([.][A-Za-z\d]{2,})+/gi
-            var data = {
-                "name": document.getElementById("name").value,
-                "email": document.getElementById("email").value,
-                "payment-type": document.getElementById("country").value,
-                "games": document.getElementById("games").value,
-                "phone": document.getElementById("phone").value,
+                                var data = {
+                                    "name": document.getElementById("name").value,
+                                "email": document.getElementById("email").value,
+                                "payment-type": document.getElementById("country").value,
+                                "games": document.getElementById("games").value,
+                                "phone": document.getElementById("phone").value,
             }
-            if (document.getElementById("user-message")) {
-                data.message = document.getElementById("user-message").value
-            }
-            const name = document.getElementById("name")
-            const email = document.getElementById("email")
-            const phone = document.getElementById("phone")
-            const country = document.getElementById("country")
-            const games = document.getElementById("games")
-            const message = document.getElementById("user-message")
-            const submit = document.getElementById("submit-button")
-            // console.log(message.value, "Message value after submitting")
-            if (data["payment-type"] === "null" || data.games === "null" || data.email.length == 0 || data.name.length == 0 || !emailRegex.test(data.email)) {
+                                if (document.getElementById("user-message")) {
+                                    data.message = document.getElementById("user-message").value
+                                }
+                                const name = document.getElementById("name")
+                                const email = document.getElementById("email")
+                                const phone = document.getElementById("phone")
+                                const country = document.getElementById("country")
+                                const games = document.getElementById("games")
+                                const message = document.getElementById("user-message")
+                                const submit = document.getElementById("submit-button")
+                                // console.log(message.value, "Message value after submitting")
+                                if (data["payment-type"] === "null" || data.games === "null" || data.email.length == 0 || data.name.length == 0 || !emailRegex.test(data.email)) {
                 if (data.name.length == 0) {
-                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kailangan ang pangalan upang kumonekta sa isang ahente!" : "Name is required to connect an agent!"
+                                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kailangan ang pangalan upang kumonekta sa isang ahente!" : "Name is required to connect an agent!"
                     name.placeholder = language == "tl" ? 'Kailangan ang pangalan upang kumonekta sa isang ahente' : "Name is required to connect an agent"
-                    name.classList.add('invalid-placeholder');
-                    email.classList.remove("invalid-placeholder");
-                    phone.classList.remove("invalid-placeholder")
-                    message.classList.remove("invalid-placeholder")
-                    name.focus();
+                                name.classList.add('invalid-placeholder');
+                                email.classList.remove("invalid-placeholder");
+                                phone.classList.remove("invalid-placeholder")
+                                message.classList.remove("invalid-placeholder")
+                                name.focus();
                 }
-                else if (data.email.length == 0) {
-                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang email upang kumonekta sa isang ahente!" : "Email is required to connect an agent!"
+                                else if (data.email.length == 0) {
+                                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang email upang kumonekta sa isang ahente!" : "Email is required to connect an agent!"
                     email.placeholder = language == "tl" ? 'Kinakailangan ang email upang kumonekta sa isang ahente' : "Email is required to connect an agent"
-                    email.classList.add('invalid-placeholder');
-                    name.classList.remove("invalid-placeholder");
-                    phone.classList.remove("invalid-placeholder")
-                    message.classList.remove("invalid-placeholder")
-                    email.focus();
+                                email.classList.add('invalid-placeholder');
+                                name.classList.remove("invalid-placeholder");
+                                phone.classList.remove("invalid-placeholder")
+                                message.classList.remove("invalid-placeholder")
+                                email.focus();
                 }
-                else if (!emailRegex.test(data.email)) {
-                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang wastong email upang kumonekta sa isang ahente" : "Valid email is required to connect an agent"
+                                else if (!emailRegex.test(data.email)) {
+                                    document.getElementById("invalid-message").innerHTML = language == "tl" ? "Kinakailangan ang wastong email upang kumonekta sa isang ahente" : "Valid email is required to connect an agent"
                     email.placeholder = language == "tl" ? 'Kinakailangan ang wastong email upang kumonekta sa isang ahente' : "Valid email is required to connect an agent"
-                    name.classList.remove("invalid-placeholder");
-                    phone.classList.remove("invalid-placeholder")
-                    message.classList.remove("invalid-placeholder")
-                    email.focus();
+                                name.classList.remove("invalid-placeholder");
+                                phone.classList.remove("invalid-placeholder")
+                                message.classList.remove("invalid-placeholder")
+                                email.focus();
                 }
                 // else if (data.phone.length == 0) {
-                //     document.getElementById("invalid-message").innerHTML = language == "tl" ? "No.Telepon wajib diisi untuk terhubung ke Agen Kami!" : "Phone number is required to connect an agent!"
-                //     phone.placeholder = language == "tl" ? 'No.Telepon wajib diisi untuk terhubung ke Agen Kami' : "Phone number is required to connect an agent"
-                //     phone.classList.add('invalid-placeholder');
-                //     name.classList.remove("invalid-placeholder");
-                //     email.classList.remove("invalid-placeholder")
-                //     message.classList.remove("invalid-placeholder")
-                //     phone.focus();
-                // }
-                // else if (message.value == "") {
-                //     document.getElementById("invalid-message").innerHTML = language == "tl" ? "No.Telepon wajib diisi untuk terhubung ke Agen Kami!" : "Phone number is required to connect an agent!"
-                //     // me.placeholder = language == "tl" ? 'No.Telepon wajib diisi untuk terhubung ke Agen Kami' : "Phone number is required to connect an agent"
-                //     phone.classList.remove('invalid-placeholder');
-                //     name.classList.remove("invalid-placeholder");
-                //     email.classList.remove("invalid-placeholder")
-                //     message.classList.add('invalid-placeholder');
-                //     message.focus();
-                // }
-                console.log("Empty/Invalid values are present in the form ")
-            }
-            else {
+                                    //     document.getElementById("invalid-message").innerHTML = language == "tl" ? "No.Telepon wajib diisi untuk terhubung ke Agen Kami!" : "Phone number is required to connect an agent!"
+                                    //     phone.placeholder = language == "tl" ? 'No.Telepon wajib diisi untuk terhubung ke Agen Kami' : "Phone number is required to connect an agent"
+                                    //     phone.classList.add('invalid-placeholder');
+                                    //     name.classList.remove("invalid-placeholder");
+                                    //     email.classList.remove("invalid-placeholder")
+                                    //     message.classList.remove("invalid-placeholder")
+                                    //     phone.focus();
+                                    // }
+                                    // else if (message.value == "") {
+                                    //     document.getElementById("invalid-message").innerHTML = language == "tl" ? "No.Telepon wajib diisi untuk terhubung ke Agen Kami!" : "Phone number is required to connect an agent!"
+                                    //     // me.placeholder = language == "tl" ? 'No.Telepon wajib diisi untuk terhubung ke Agen Kami' : "Phone number is required to connect an agent"
+                                    //     phone.classList.remove('invalid-placeholder');
+                                    //     name.classList.remove("invalid-placeholder");
+                                    //     email.classList.remove("invalid-placeholder")
+                                    //     message.classList.add('invalid-placeholder');
+                                    //     message.focus();
+                                    // }
+                                    console.log("Empty/Invalid values are present in the form ")
+                                }
+                                else {
                 try {
                     var file = document.querySelector("#read-file").files[0];
-                    console.log("File value", file)
-                    if (file != undefined) {
-                        const fileBlob = new Blob([file], { type: 'audio/m4u' })
-                        console.log("File uploaded", fileBlob.toString().length)
-                        let { env } = Qs.parse(location.search, { ignoreQueryPrefix: true })
-                        let authorization = env == "sandbox" ? "Bearer aba1bc0c9163ffb006ffc2f24779f812fbc9294c224785ede2a899dad0b28e63" : "Bearer 41d10c00f30cab3874036dbd93de44f17d9bc3e22d98b2a8fc361aab75ba3bfd"
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/binary");
-                        myHeaders.append("Authorization", authorization);
-                        myHeaders.append("Cookie", "__cfruid=ac5013aec99a52bd2b8af09da3ee3120b9711fb6-1622516380; _zendesk_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTAzNDdkMmU1MTA3Y2JmMWIzOTc0MDQyOGE2NTcyYmEwBjsAVEkiDGFjY291bnQGOwBGaQMR95xJIgpyb3V0ZQY7AEZpA582Ow%3D%3D--5e799ad44877306f7c22b2ab9da3034f88c358c3");
+                                console.log("File value", file)
+                                if (file != undefined) {
+                        const fileBlob = new Blob([file], {type: 'audio/m4u' })
+                                console.log("File uploaded", fileBlob.toString().length)
+                                let {env} = Qs.parse(location.search, {ignoreQueryPrefix: true })
+                                let authorization = env == "sandbox" ? "Bearer aba1bc0c9163ffb006ffc2f24779f812fbc9294c224785ede2a899dad0b28e63" : "Bearer 41d10c00f30cab3874036dbd93de44f17d9bc3e22d98b2a8fc361aab75ba3bfd"
+                                var myHeaders = new Headers();
+                                myHeaders.append("Content-Type", "application/binary");
+                                myHeaders.append("Authorization", authorization);
+                                myHeaders.append("Cookie", "__cfruid=ac5013aec99a52bd2b8af09da3ee3120b9711fb6-1622516380; _zendesk_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTAzNDdkMmU1MTA3Y2JmMWIzOTc0MDQyOGE2NTcyYmEwBjsAVEkiDGFjY291bnQGOwBGaQMR95xJIgpyb3V0ZQY7AEZpA582Ow%3D%3D--5e799ad44877306f7c22b2ab9da3034f88c358c3");
 
-                        console.log("this is the variable", data)
-                        document.getElementById("submit-button").disabled = true;
-                        name.disabled = true;
-                        email.disabled = true;
-                        phone.disabled = true;
-                        country.disabled = true;
-                        games.disabled = true;
-                        submit.disabled = true;
+                                console.log("this is the variable", data)
+                                document.getElementById("submit-button").disabled = true;
+                                name.disabled = true;
+                                email.disabled = true;
+                                phone.disabled = true;
+                                country.disabled = true;
+                                games.disabled = true;
+                                submit.disabled = true;
 
-                        
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: fileBlob,
-                            redirect: 'follow'
+
+                                var requestOptions = {
+                                    method: 'POST',
+                                headers: myHeaders,
+                                body: fileBlob,
+                                redirect: 'follow'
                         };
 
                         // if (fileBlob.toString().length < 20) {
@@ -530,177 +541,177 @@
                         // }
                         // else {
                         const url = env == "sandbox" ? `https://codapayment1601020012.zendesk.com/api/v2/uploads?filename=user_upload` : `https://codapayment.zendesk.com/api/v2/uploads?filename=user_upload`
-                        fetch(url, requestOptions)
+                                fetch(url, requestOptions)
                             .then(response => response.text())
                             .then(result => {
-                                result = JSON.parse(result)
+                                    result = JSON.parse(result)
                                 console.log(result)
                                 const attachmentToken = result.upload.token
                                 data.attachmentToken = attachmentToken
                                 console.log("Data variable:", data)
                                 window.parent.postMessage(
-                                    JSON.stringify({
-                                        event_code: "ym-client-event",
-                                        data: JSON.stringify({
-                                            event: {
-                                                code: "user-data",
-                                                data: {
-                                                    userdetails: data,
+                                JSON.stringify({
+                                    event_code: "ym-client-event",
+                                data: JSON.stringify({
+                                    event: {
+                                    code: "user-data",
+                                data: {
+                                    userdetails: data,
                                                 },
                                             },
                                         }),
                                     }),
-                                    "*"
+                                "*"
                                 );
                             })
                             .catch(error => console.log('error', error));
                     }
-                    else {
-                        name.disabled = true;
-                        email.disabled = true;
-                        phone.disabled = true;
-                        country.disabled = true;
-                        games.disabled = true;
-                        submit.disabled = true;
-                        data.attachmentToken = ""
-                        console.log(data)
-                        window.parent.postMessage(
-                            JSON.stringify({
-                                event_code: "ym-client-event",
+                                else {
+                                    name.disabled = true;
+                                email.disabled = true;
+                                phone.disabled = true;
+                                country.disabled = true;
+                                games.disabled = true;
+                                submit.disabled = true;
+                                data.attachmentToken = ""
+                                console.log(data)
+                                window.parent.postMessage(
+                                JSON.stringify({
+                                    event_code: "ym-client-event",
                                 data: JSON.stringify({
                                     event: {
-                                        code: "user-data",
-                                        data: {
-                                            userdetails: data,
+                                    code: "user-data",
+                                data: {
+                                    userdetails: data,
                                         },
                                     },
                                 }),
                             }),
-                            "*"
-                        );
+                                "*"
+                                );
                     }
                 }
-                catch (e) {
-                    name.disabled = true;
-                    email.disabled = true;
-                    phone.disabled = true;
-                    country.disabled = true;
-                    games.disabled = true;
-                    submit.disabled = true;
-                    // message.disabled = true;
-                    console.log("File not uploaded", e)
-                    data.attachmentToken = ""
-                    console.log("In catch", data)
-                    window.parent.postMessage(
-                        JSON.stringify({
-                            event_code: "ym-client-event",
-                            data: JSON.stringify({
-                                event: {
+                                catch (e) {
+                                    name.disabled = true;
+                                email.disabled = true;
+                                phone.disabled = true;
+                                country.disabled = true;
+                                games.disabled = true;
+                                submit.disabled = true;
+                                // message.disabled = true;
+                                console.log("File not uploaded", e)
+                                data.attachmentToken = ""
+                                console.log("In catch", data)
+                                window.parent.postMessage(
+                                JSON.stringify({
+                                    event_code: "ym-client-event",
+                                data: JSON.stringify({
+                                    event: {
                                     code: "user-data",
-                                    data: {
-                                        userdetails: data,
+                                data: {
+                                    userdetails: data,
                                     },
                                 },
                             }),
                         }),
-                        "*"
-                    );
+                                "*"
+                                );
                 }
 
                 // window.parent.postMessage(
                 //     JSON.stringify({
-                //         event_code: "ym-client-event",
-                //         data
-                //     }),
-                //     "*"
-                // );
-                // const { sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
-                // self.location = `/zendesk.html?country=Indonesia&paymentType=${can["payment-type"]}&game=${can.games}&sender=${sender}`
-                // name=${can.name}&email=${can.email}&phone=${can.phone}&country=Indonesia&paymentType=${can["payment-type"]}&game=${can.games}&sender=${sender}`;
-            }
+                                    //         event_code: "ym-client-event",
+                                    //         data
+                                    //     }),
+                                    //     "*"
+                                    // );
+                                    // const { sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+                                    // self.location = `/zendesk.html?country=Indonesia&paymentType=${can["payment-type"]}&game=${can.games}&sender=${sender}`
+                                    // name=${can.name}&email=${can.email}&phone=${can.phone}&country=Indonesia&paymentType=${can["payment-type"]}&game=${can.games}&sender=${sender}`;
+                                }
         }
-    </script>
-    <div class="demo-wrap">
-        <div style="max-width: 600px;" class="demo-content center">
-            <img src="https://cdn.yellowmessenger.com/j4mnoorqT5BZ1620811806565.png" alt=""
-                style="float: right;max-width: 20px;max-height: 20px;margin-right: 5px;" onclick="back()">
-            <div id="selection" style="max-width: 90%;">
-                <center>
-                    <h6 id="title"
-                        style="color: black;text-align: left;margin-bottom: 25px;margin-top: 10px;font-size: 12px;">
-                        Pakisagutan ang mga sumusunod para mai-connect ka sa aming Customer Support Team 😊
-                    </h6>
-                </center>
-            </div>
-            <p id="invalid-message" style="color:hsl(0, 100%, 50%);padding-left: 3px;font-size: 12px;"></p>
-            <div id="message"></div>
-            <h6 id="name-header">
-                Pangalan<sup>*</sup>
-            </h6>
-            <input type="text" placeholder="I-enter ang iyong pangalan" class="input-field" id="name" name="name"
-                oninput="nameHandler()" required>
-            <h6 id="email-header">
-                Email<sup>*</sup>
-            </h6>
-            <input type="email" placeholder="I-enter ang iyong email" class="input-field" id="email" name="email"
-                oninput="emailHandler()" required>
-            <h6 id="phone-header">
-                Cellphone Number<sup>*</sup>
-            </h6>
-            <input type="number" placeholder="I-enter ang iyong cellphone number" class="input-field" id="phone"
-                name="phone">
-            <h6 id="payment-header">
-                Payment Method<sup>*</sup>
-            </h6>
-            <select style="width: 96%;
+                            </script>
+                            <div class="demo-wrap">
+                                <div style="max-width: 600px;" class="demo-content center">
+                                    <img src="https://cdn.yellowmessenger.com/j4mnoorqT5BZ1620811806565.png" alt=""
+                                        style="float: right;max-width: 20px;max-height: 20px;margin-right: 5px;" onclick="back()">
+                                        <div id="selection" style="max-width: 90%;">
+                                            <center>
+                                                <h6 id="title"
+                                                    style="color: black;text-align: left;margin-bottom: 25px;margin-top: 10px;font-size: 12px;">
+                                                    Pakisagutan ang mga sumusunod para mai-connect ka sa aming Customer Support Team 😊
+                                                </h6>
+                                            </center>
+                                        </div>
+                                        <p id="invalid-message" style="color:hsl(0, 100%, 50%);padding-left: 3px;font-size: 12px;"></p>
+                                        <div id="message"></div>
+                                        <h6 id="name-header">
+                                            Pangalan<sup>*</sup>
+                                        </h6>
+                                        <input type="text" placeholder="I-enter ang iyong pangalan" class="input-field" id="name" name="name"
+                                            oninput="nameHandler()" required>
+                                            <h6 id="email-header">
+                                                Email<sup>*</sup>
+                                            </h6>
+                                            <input type="email" placeholder="I-enter ang iyong email" class="input-field" id="email" name="email"
+                                                oninput="emailHandler()" required>
+                                                <h6 id="phone-header">
+                                                    Cellphone Number<sup>*</sup>
+                                                </h6>
+                                                <input type="number" placeholder="I-enter ang iyong cellphone number" class="input-field" id="phone"
+                                                    name="phone">
+                                                    <h6 id="payment-header">
+                                                        Payment Method<sup>*</sup>
+                                                    </h6>
+                                                    <select style="width: 96%;
             max-width: 96%;
             margin-left: auto;
             margin-right: auto;
             border-radius: 2px;
             border-color: #a1a1a1;
             height: 25px;" class="center" name="country" id="country">
-                <option id="product-option" value="null" disabled selected></option>
-            </select>
-            <!-- Pilih Saluran pembarayan yang Anda inginkan -->
-            <br>
-            <h6 id="game-header">
-                Produk/Game<sup>*</sup>
-            </h6>
-            <select style="width: 96%;
+                                                        <option id="product-option" value="null" disabled selected></option>
+                                                    </select>
+                                                    <!-- Pilih Saluran pembarayan yang Anda inginkan -->
+                                                    <br>
+                                                        <h6 id="game-header">
+                                                            Produk/Game<sup>*</sup>
+                                                        </h6>
+                                                        <select style="width: 96%;
             max-width: 96%;
             margin-left: auto;
             margin-right: auto;
             border-radius: 2px;
             border-color: #a1a1a1;
             height: 25px;" class="center" name="games" id="games">
-                <option id="game-option" value="null" disabled selected></option>
-            </select>
-            <!-- Silakan pilih produk/game nya -->
-            <br>
-            <div id="offline-message">
-            </div>
-            <!-- <input type="file" id="attachment" name="filename" onchange="fileUploaded()"> -->
-            <!-- <div class="image-upload">
-                <input type="file" name="" id="logo" onchange="fileValue(this)">
-                <label for="logo" class="upload-field" id="file-label">
-                    <div class="file-thumbnail">
-                        <img id="image-preview" src="https://www.btklsby.go.id/images/placeholder/basic.png" alt="">
-                        <h3 id="filename">
-                            Drag and Drop
-                        </h3>
-                        <p>Supports JPG, PNG, SVG</p>
+                                                            <option id="game-option" value="null" disabled selected></option>
+                                                        </select>
+                                                        <!-- Silakan pilih produk/game nya -->
+                                                        <br>
+                                                            <div id="offline-message">
+                                                            </div>
+                                                            <!-- <input type="file" id="attachment" name="filename" onchange="fileUploaded()"> -->
+                                                                <!-- <div class="image-upload">
+                                                                    <input type="file" name="" id="logo" onchange="fileValue(this)">
+                                                                        <label for="logo" class="upload-field" id="file-label">
+                                                                            <div class="file-thumbnail">
+                                                                                <img id="image-preview" src="https://www.btklsby.go.id/images/placeholder/basic.png" alt="">
+                                                                                    <h3 id="filename">
+                                                                                        Drag and Drop
+                                                                                    </h3>
+                                                                                    <p>Supports JPG, PNG, SVG</p>
                     </div>
                 </label>
             </div> -->
-            <!-- <h6 id="attachment-header">
-                Attachments<sup>*</sup>
-            </h6>
-            <input type="file" class="form-control input-field" style="height: 30px;" id="customFile" onchange="fileUpload()"/> -->
-            <input type="button" value="Kirim" id="submit-button" onclick="submit()"
-                style="max-width: 60%;margin: 15px auto;background-color: #385072;color: #ffffff"
-                class="btn btn-primary center" />
+                                                                        <!-- <h6 id="attachment-header">
+                                                                            Attachments<sup>*</sup>
+                                                                        </h6>
+                                                                        <input type="file" class="form-control input-field" style="height: 30px;" id="customFile" onchange="fileUpload()" /> -->
+                                                                        <input type="button" value="Kirim" id="submit-button" onclick="submit()"
+                                                                            style="max-width: 60%;margin: 15px auto;background-color: #385072;color: #ffffff"
+                                                                            class="btn btn-primary center" />
         </div>
-    </div>
+                                                                </div>
 </body>
 
 </html>
